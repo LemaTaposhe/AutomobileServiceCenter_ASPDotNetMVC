@@ -1,0 +1,83 @@
+﻿@model MvcProject_Lema.Models.AppointMaster
+
+@{
+    ViewBag.Title = "Details";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#examInfo").click(function () {
+            $.ajax({
+                url: "@Url.Action("AppointDetails", "AppointMaster", new {id = @Model.AppointMasterId})",
+                type: "get",
+                dataType: "json",
+                success: function (result) {
+                    $("#examDisplay table tbody").empty;
+                    for (var i = 0; i < result.length; i++) {
+                        $("#examDisplay table tbody").append("<tr><td>" + result[i].appointMasterId + "</td><td>" + result[i].serviceId + "</td><td>" + result[i].quantity + "</td><td>" + result[i].price + "</td></tr>");
+                    }
+                    $("#examDisplay").show();
+                }
+            });
+            this.disabled = true;
+        });
+    });
+</script>
+
+<h2>Details</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <fieldset>
+                <legend>AppointMaster</legend>
+                <span class="display-label">
+                    @Html.DisplayNameFor(model => model.AppointDate) :
+                </span>
+                <span class="display-field">
+                    @Html.DisplayFor(model => model.AppointDate)
+                </span>
+                <br />
+                <span class="display-label">
+                    @Html.DisplayNameFor(model => model.CustomerName) :
+                </span>
+                <span class="display-field">
+                    @Html.DisplayFor(model => model.CustomerName)
+                </span>
+                <br />
+                <span class="display-label">
+                    @Html.DisplayNameFor(model => model.Image) :
+                </span>
+                <span class="display-field">
+                    @Html.DisplayFor(model => model.Image)
+                </span>                
+            </fieldset>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.AppointMasterId }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                <button class="btn btn-info" id="examInfo" data-exam-id="@Model.AppointMasterId">Service Details</button>
+            </div>
+            <div id="examDisplay" style="display:none">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>AppointMasterId</th>
+                            <th>ServiceId</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+   

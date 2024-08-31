@@ -1,0 +1,97 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<main>
+        <section class="row" aria-labelledby="aspnetTitle">
+            <h1 id="title">ASP.NET</h1>
+            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+            <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+        </section>
+
+        <div class="row">
+            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
+                <h2 id="gettingStartedTitle">Getting started</h2>
+                <p>
+                    ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                    enables a clean separation of concerns and gives you full control over markup
+                    for enjoyable, agile development.
+                </p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+            </section>
+            <section class="col-md-4" aria-labelledby="librariesTitle">
+                <h2 id="librariesTitle">Get more libraries</h2>
+                <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+            </section>
+            <section class="col-md-4" aria-labelledby="hostingTitle">
+                <h2 id="hostingTitle">Web Hosting</h2>
+                <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+                <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+            </section>
+        </div>
+    </main>*@
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        @Html.ActionLink("Dashboard", "Index", "Home", new { area = "" }, new { @class = "nav-link active" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Appoint", "Index", "Appoint", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Details", "Index", "AppointMaster", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Employee", "Index", "Employee", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("Customer", "Index", "Customer", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Welcome to Our Automobile Service Center</h1>
+            </div>
+
+            <section class="row">
+
+                <div class="col-lg-4">
+                    @*<img src="~/Content/Images/auto-service.jpg" class="img-fluid rounded" alt="Automobile Service">*@
+                    <img src="~/Images/ai-generated-beautiful-dark-background-for-a-car-wash-advertisement-with-plenty-of-space-for-text-and-a-blurred-background-free-photo.jpeg" />
+                </div>
+            </section>
+
+            <section class="row mt-4">
+                <div class="col-md-4">
+                    <h3>Our Services</h3>
+                    <p>We offer a wide range of services including oil changes, brake inspections, engine repair, and more.</p>
+                    <p><a href="#" class="btn btn-primary">Learn more &raquo;</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Schedule an Appointment</h3>
+                    <p>Book an appointment with us online to get your vehicle serviced at your convenience.</p>
+                    @*@Html.ActionLink("Appoint", "Index", "Appoint", new { area = "" }, new { @class = "nav-link" })*@
+                    <p>
+                        @Html.ActionLink("Book Now ", "Index", "Appoint", new { area = "" },
+                        new { @class = "btn btn-primary" })
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Contact Us</h3>
+                    <p>Have questions? Get in touch with us and we'll be happy to assist you.</p>
+                    <p><a href="#" class="btn btn-primary">Contact us &raquo;</a></p>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
